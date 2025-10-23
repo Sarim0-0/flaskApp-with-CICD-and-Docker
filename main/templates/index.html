@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Welcome to Flask Lab</h1>
+  <p>Health Check: <span id="health-status">Loading...</span></p>
+
+  <script>
+    // Fetch the health status from backend
+    fetch("/health")
+      .then(res => res.text())
+      .then(txt => document.getElementById("health-status").innerText = txt)
+      .catch(() => document.getElementById("health-status").innerText = "Error");
+  </script>
+{% endblock %}
