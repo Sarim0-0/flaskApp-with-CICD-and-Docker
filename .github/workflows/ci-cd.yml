@@ -44,4 +44,4 @@ jobs:
       - name: Build Docker image
         working-directory: ./main
         run: |
-          docker build -t flaskApp-with-CICD-and-Docker:${{ github.sha }} .
+          docker build -t flask-app:${{ github.sha }} .
