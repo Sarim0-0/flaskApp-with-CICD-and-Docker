@@ -28,8 +28,11 @@ jobs:
 
       - name: Run tests
         working-directory: ./main
+        env:
+          PYTHONPATH: ${{ github.workspace }}
         run: |
           pytest -q tests
+
 
   build-docker:
     needs: build-and-test
@@ -41,4 +44,4 @@ jobs:
       - name: Build Docker image
         working-directory: ./main
         run: |
-          docker build -t flask-lab:${{ github.sha }} .
+          docker build -t flask-app:${{ github.sha }} .
