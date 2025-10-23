@@ -28,8 +28,11 @@ jobs:
 
       - name: Run tests
         working-directory: ./main
+        env:
+          PYTHONPATH: ${{ github.workspace }}
         run: |
           pytest -q tests
+
 
   build-docker:
     needs: build-and-test
